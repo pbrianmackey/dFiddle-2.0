@@ -17,7 +17,9 @@
     };
 
     self.bindingComplete = function() {
+        console.log('bindingComplete');
         if ($("#test").length) {
+            console.log('bind code fired');
             $("#test").parents("form").validate();
             $("#test").rules("add", { mvr_regex: true });
     }
@@ -29,10 +31,12 @@
     $.validator.addMethod(
         "mvr_regex",
         function(value, element) {
+            console.log('regex check fired');
             var pass = false;
             return pass;
         }, 
         function () {
+            console.log('message function invoked');
             return "Invalid thingy: " + self.message();
         });
     }
