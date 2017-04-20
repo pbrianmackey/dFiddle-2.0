@@ -1,4 +1,4 @@
-﻿define(['plugins/dialog', 'knockout'], function (dialog, ko) {
+﻿define(['plugins/dialog', 'knockout', 'jquery.validate'], function (dialog, ko) {
     
     var CustomModal = function() {
         this.input = ko.observable('');
