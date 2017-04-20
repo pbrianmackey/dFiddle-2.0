@@ -32,3 +32,4 @@ Packages/
 
 !skeletons/vsix/DurandalMvcSpaTemplateVsix/packages/
 !build.bat
+npm-debug.log

@@ -1,4 +1,4 @@
-﻿define(['plugins/dialog', 'knockout', 'jquery.validate'], function (dialog, ko) {
+﻿define(['plugins/dialog', 'knockout'], function (dialog, ko, validate) {
     
     var CustomModal = function() {
         this.input = ko.observable('');
@@ -15,6 +15,27 @@
     CustomModal.show = function(){
         return dialog.show(new CustomModal());
     };
+
+    self.bindingComplete = function() {
+        if ($("#test").length) {
+            $("#test").parents("form").validate();
+            $("#test").rules("add", { mvr_regex: true });
+    }
+
+    self.message = function() {
+        return "some error"
+    }
+
+    $.validator.addMethod(
+        "mvr_regex",
+        function(value, element) {
+            var pass = false;
+            return pass;
+        }, 
+        function () {
+            return "Invalid thingy: " + self.message();
+        });
+    }
 
     return CustomModal;
 });
